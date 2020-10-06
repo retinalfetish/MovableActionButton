@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="movable" format="boolean" />
+    <attr name="movingAlpha" format="float" />
+
+    <declare-styleable name="MovableActionButton">
+        <attr name="movable" />
+        <attr name="movingAlpha" />
+        <attr name="android:clickable" />
+    </declare-styleable>
+
+    <declare-styleable name="ExtendedMovableActionButton">
+        <attr name="movable" />
+        <attr name="movingAlpha" />
+        <attr name="android:clickable" />
+    </declare-styleable>
+</resources>

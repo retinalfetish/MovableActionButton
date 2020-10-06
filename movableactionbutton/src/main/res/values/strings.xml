@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="movableactionbutton_slide_behavior" translatable="false">com.unary.movableactionbutton.SlideBehavior</string>
+    <string name="movableactionbutton_shrink_behavior" translatable="false">com.unary.movableactionbutton.ShrinkBehavior</string>
+</resources>

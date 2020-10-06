@@ -1,0 +1,2 @@
+include ':app', ':movableactionbutton'
+rootProject.name = 'MovableActionButton'
