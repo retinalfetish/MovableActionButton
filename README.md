@@ -52,6 +52,7 @@ The following attributes in addition to the FloatingActionButton can modify the 
 ```
 app:movable="boolean"       // Allow a clickable view to be moved
 app:movingAlpha="float"     // Multiplier used for moving. Default is "0.5"
+app:useMargins="boolean"    // Observe the layout margins when moving
 
 android:clickable="boolean" // Default true for AppCompat themes
 ```

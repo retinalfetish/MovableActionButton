@@ -44,6 +44,7 @@ import com.google.android.material.stateful.ExtendableSavedState;
  * <pre>
  *   app:movable="boolean"       // Allow a clickable view to be moved
  *   app:movingAlpha="float"     // Multiplier used for moving. Default is "0.5"
+ *   app:useMargins="boolean"    // Observe the layout margins when moving
  *
  *   android:clickable="boolean" // Default true for AppCompat themes
  * </pre>
@@ -53,11 +54,13 @@ public class MovableActionButton extends FloatingActionButton {
 
     private static final boolean MOVABLE = true;
     private static final float MOVING_ALPHA = 0.5f;
+    private static final boolean USE_MARGINS = true;
     private static final boolean CLICKABLE = true;
 
     private boolean mMovable;
     private float mMovingAlpha;
     private float mDefaultAlpha;
+    private boolean mUseMargins;
     private int mTouchSlop;
     private PointF mPortraitOrientation;
     private PointF mLandscapeOrientation;
@@ -111,12 +114,15 @@ public class MovableActionButton extends FloatingActionButton {
      * @param defStyleAttr Default style attributes to apply to this view.
      */
     private void init(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.MovableActionButton, defStyleAttr, 0);
+        TypedArray typedArray = context.getTheme()
+                .obtainStyledAttributes(attrs, R.styleable.MovableActionButton, defStyleAttr, 0);
+
         boolean clickable;
 
         try {
             mMovable = typedArray.getBoolean(R.styleable.MovableActionButton_movable, MOVABLE);
             mMovingAlpha = typedArray.getFloat(R.styleable.MovableActionButton_movingAlpha, MOVING_ALPHA);
+            mUseMargins = typedArray.getBoolean(R.styleable.MovableActionButton_useMargins, USE_MARGINS);
 
             clickable = typedArray.getBoolean(R.styleable.MovableActionButton_android_clickable, CLICKABLE);
         } finally {
@@ -284,7 +290,7 @@ public class MovableActionButton extends FloatingActionButton {
      * @return Bound X axis.
      */
     private float getInsideParentX(float x) {
-        ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) getLayoutParams();
+        ViewGroup.MarginLayoutParams lp = getMarginLayoutParams();
 
         return Math.min(Math.max(x, lp.leftMargin + ((View) getParent()).getPaddingLeft()),
                 ((View) getParent()).getWidth() - lp.rightMargin - ((View) getParent()).getPaddingRight() - getWidth());
@@ -297,10 +303,21 @@ public class MovableActionButton extends FloatingActionButton {
      * @return Bound Y axis.
      */
     private float getInsideParentY(float y) {
-        ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) getLayoutParams();
+        ViewGroup.MarginLayoutParams lp = getMarginLayoutParams();
 
         return Math.min(Math.max(y, lp.topMargin + ((View) getParent()).getPaddingTop()),
                 ((View) getParent()).getHeight() - lp.bottomMargin - ((View) getParent()).getPaddingBottom() - getHeight());
+    }
+
+    /**
+     * Create a cast safe copy of the current margin layout parameters according to useMargins.
+     *
+     * @return Margin layout parameters.
+     */
+    @NonNull
+    private ViewGroup.MarginLayoutParams getMarginLayoutParams() {
+        return mUseMargins && getLayoutParams() instanceof ViewGroup.MarginLayoutParams
+                ? (ViewGroup.MarginLayoutParams) getLayoutParams() : new ViewGroup.MarginLayoutParams(getLayoutParams());
     }
 
     @NonNull
@@ -343,6 +360,24 @@ public class MovableActionButton extends FloatingActionButton {
      */
     public void setMovingAlpha(float movingAlpha) {
         mMovingAlpha = movingAlpha;
+    }
+
+    /**
+     * Check if the view should observe its layout margins when moving within the parent.
+     *
+     * @return True if using margins.
+     */
+    public boolean canUseMargins() {
+        return mUseMargins;
+    }
+
+    /**
+     * Set if the view should observe its layout margins when moving within the parent.
+     *
+     * @param useMargins True if using margins.
+     */
+    public void setUseMargins(boolean useMargins) {
+        mUseMargins = useMargins;
     }
 
     /**

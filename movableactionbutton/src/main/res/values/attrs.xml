@@ -2,16 +2,21 @@
 <resources>
     <attr name="movable" format="boolean" />
     <attr name="movingAlpha" format="float" />
+    <attr name="useMargins" format="boolean" />
 
     <declare-styleable name="MovableActionButton">
         <attr name="movable" />
         <attr name="movingAlpha" />
+        <attr name="useMargins" />
+
         <attr name="android:clickable" />
     </declare-styleable>
 
     <declare-styleable name="ExtendedMovableActionButton">
         <attr name="movable" />
         <attr name="movingAlpha" />
+        <attr name="useMargins" />
+
         <attr name="android:clickable" />
     </declare-styleable>
 </resources>
