@@ -289,7 +289,7 @@ public class MovableActionButton extends FloatingActionButton {
      * @param x The X Axis.
      * @return Bound X axis.
      */
-    private float getInsideParentX(float x) {
+    protected float getInsideParentX(float x) {
         ViewGroup.MarginLayoutParams lp = getMarginLayoutParams();
 
         return Math.min(Math.max(x, lp.leftMargin + ((View) getParent()).getPaddingLeft()),
@@ -302,7 +302,7 @@ public class MovableActionButton extends FloatingActionButton {
      * @param y The Y Axis.
      * @return Bound Y axis.
      */
-    private float getInsideParentY(float y) {
+    protected float getInsideParentY(float y) {
         ViewGroup.MarginLayoutParams lp = getMarginLayoutParams();
 
         return Math.min(Math.max(y, lp.topMargin + ((View) getParent()).getPaddingTop()),
