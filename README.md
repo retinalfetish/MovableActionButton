@@ -1,10 +1,10 @@
 # MovableActionButton
 A simple Material ActionButton widget extended from FloatingActionButton and stylized as such. The view can be repositioned by the user within the confines of the parent.
 ## Screenshots
-<img src="/art/screenshot-default.png" alt="Screenshot" height=600> <img src="/art/screenshot-moved.png" alt="Screenshot" height=600>
+<img src="/art/screenshot-animation.gif" alt="Screenshot" height=600>
 
 ## Usage
-The source code can be copied from the mutual class files and attrs.xml in to your project or included by adding [jitpack.io](https://jitpack.io/#com.unary/movableactionbutton) to the root build.gradle and `implementation 'com.unary:movableactionbutton:1.0.0'` as a module dependency.
+The source code can be copied from the mutual class files and attrs.xml in to your project or included by adding [jitpack.io](https://jitpack.io/#com.unary/movableactionbutton) to the root build.gradle and `implementation 'com.unary:movableactionbutton:1.0.1'` as a module dependency.
 ```
 allprojects {
     repositories {
