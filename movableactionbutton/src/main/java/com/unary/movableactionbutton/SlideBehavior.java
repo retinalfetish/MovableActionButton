@@ -17,11 +17,13 @@ package com.unary.movableactionbutton;
 
 import android.content.Context;
 import android.graphics.RectF;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -54,6 +56,16 @@ public class SlideBehavior<V extends View> extends CoordinatorLayout.Behavior<V>
      */
     public SlideBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
+    }
+
+    @Nullable
+    @Override
+    public Parcelable onSaveInstanceState(@NonNull CoordinatorLayout parent, @NonNull V child) {
+        if (mAnimate) {
+            child.setTranslationY(mTranslationY);
+        }
+
+        return super.onSaveInstanceState(parent, child);
     }
 
     @Override
