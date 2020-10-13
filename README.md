@@ -4,7 +4,7 @@ A simple Material ActionButton widget extended from FloatingActionButton and sty
 <img src="/art/screenshot-animation.gif" alt="Screenshot" height=600>
 
 ## Usage
-The source code can be copied from the mutual class files and attrs.xml in to your project or included by adding [jitpack.io](https://jitpack.io/#com.unary/movableactionbutton) to the root build.gradle and `implementation 'com.unary:movableactionbutton:1.0.1'` as a module dependency.
+The source code can be copied from the mutual class files and attrs.xml in to your project or included by adding [jitpack.io](https://jitpack.io/#com.unary/movableactionbutton) to the root build.gradle and `implementation 'com.unary:movableactionbutton:1.0.2'` as a module dependency.
 ```
 allprojects {
     repositories {
