@@ -1,5 +1,5 @@
 # MovableActionButton
-A simple Material ActionButton widget extended from FloatingActionButton and stylized as such. The view can be repositioned by the user within the confines of the parent.
+A simple Material ActionButton widget extended from [FloatingActionButton](https://developer.android.com/reference/com/google/android/material/floatingactionbutton/FloatingActionButton) and stylized as such. The view can be repositioned by the user within the confines of the parent.
 ## Screenshots
 <img src="/art/screenshot-animation.gif" alt="Screenshot" height=600>
 
