@@ -4,7 +4,7 @@ A simple Material ActionButton widget extended from [FloatingActionButton](https
 <img src="/art/screenshot-animation.gif" alt="Screenshot" height=600>
 
 ## Usage
-The library is part of [JCenter](https://bintray.com/rogue/maven/com.unary%3Amovableactionbutton) (a default repository) and can be included in your project by adding `implementation 'com.unary:movableactionbutton:1.0.2'` as a module dependency. The latest build can also be found at [JitPack](https://jitpack.io/#com.unary/movableactionbutton).
+The library is part of [JCenter](https://bintray.com/rogue/maven/com.unary:movableactionbutton) (a default repository) and can be included in your project by adding `implementation 'com.unary:movableactionbutton:1.0.2'` as a module dependency. The latest build can also be found at [JitPack](https://jitpack.io/#com.unary/movableactionbutton).
 ```
 allprojects {
     repositories {
